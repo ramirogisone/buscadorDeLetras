@@ -7,6 +7,7 @@ export class Interfaz{
 	constructor(){
 		this.divMensajes = divMensajes;
 		this.divResultado = divResultado;
+		this.formularioBusqueda = formularioBusqueda;
 	}
 	mostrarMensajes(mensaje){
 		const div = document.createElement('div');

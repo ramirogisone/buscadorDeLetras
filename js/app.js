@@ -5,6 +5,7 @@ let interfaz = new UI.Interfaz();
 
 UI.formularioBusqueda.addEventListener('submit', (ev) => {
 	ev.preventDefault();
+	interfaz.divResultado.innerHTML = '';
 	const inArtista = document.getElementById('artista').value;
 	const inCancion = document.getElementById('cancion').value;
 
@@ -23,6 +24,7 @@ UI.formularioBusqueda.addEventListener('submit', (ev) => {
 					setTimeout(() => {
 						const error = document.querySelector('.error');
 						error.remove();
+						interfaz.formularioBusqueda.reset();
 					}, 3000);
 				}else{
 					interfaz.mostrarLetras(respuesta.respuesta);
