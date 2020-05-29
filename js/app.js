@@ -18,7 +18,15 @@ UI.formularioBusqueda.addEventListener('submit', (ev) => {
 		let api = new Lyricsapi(inArtista, inCancion);
 		api.obtenerLetras()
 			.then(respuesta => {
-				interfaz.mostrarLetras(respuesta.respuesta);
+				if(respuesta.respuesta.error){
+					interfaz.mostrarMensajes('No encontraron resultados para la busqueda ingresada');
+					setTimeout(() => {
+						const error = document.querySelector('.error');
+						error.remove();
+					}, 3000);
+				}else{
+					interfaz.mostrarLetras(respuesta.respuesta);
+				}
 			})
 	}
 })

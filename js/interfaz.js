@@ -15,10 +15,12 @@ export class Interfaz{
 		this.divMensajes.appendChild(div);
 	}
 	mostrarLetras(letra){
-		console.log(letra.lyrics);
+		const limpiarResultado = this.divResultado;
+		if(limpiarResultado){
+			limpiarResultado.innerHTML = '';
+		}
 		const div = document.createElement('div');
 		div.appendChild(document.createTextNode(letra.lyrics));
 		this.divResultado.appendChild(div);
-		// this.divResultado.innerHTML = `${letra.lyrics}`;
 	}
 }			 
