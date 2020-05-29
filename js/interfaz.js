@@ -6,11 +6,19 @@ export const formularioBusqueda = document.querySelector('#formulario-buscar'),
 export class Interfaz{
 	constructor(){
 		this.divMensajes = divMensajes;
+		this.divResultado = divResultado;
 	}
 	mostrarMensajes(mensaje){
 		const div = document.createElement('div');
 		div.classList.add('error');
 		div.appendChild(document.createTextNode(mensaje));
 		this.divMensajes.appendChild(div);
+	}
+	mostrarLetras(letra){
+		console.log(letra.lyrics);
+		const div = document.createElement('div');
+		div.appendChild(document.createTextNode(letra.lyrics));
+		this.divResultado.appendChild(div);
+		// this.divResultado.innerHTML = `${letra.lyrics}`;
 	}
 }			 

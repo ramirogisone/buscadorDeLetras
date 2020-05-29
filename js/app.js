@@ -2,7 +2,6 @@ import * as UI from './interfaz.js';
 import { Lyricsapi } from './api.js';
 
 let interfaz = new UI.Interfaz();
-let api = new Lyricsapi();
 
 UI.formularioBusqueda.addEventListener('submit', (ev) => {
 	ev.preventDefault();
@@ -16,9 +15,10 @@ UI.formularioBusqueda.addEventListener('submit', (ev) => {
 			error.remove();
 		}, 3000);
 	}else{
-		api.obtenerLetras(inArtista, inCancion)
+		let api = new Lyricsapi(inArtista, inCancion);
+		api.obtenerLetras()
 			.then(respuesta => {
-				console.log(respuesta);
+				interfaz.mostrarLetras(respuesta.respuesta);
 			})
 	}
 })
